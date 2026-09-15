@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แฟ้มสะสมผลงานวิดีโอ — ชนะศักดิ์ บัวจรูญ รหัส 69469101009 </title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#08070F;
+  --ink-2:#12102A;
+  --violet:#2B1C63;
+  --cyan:#3DE8FF;
+  --magenta:#FF3D9A;
+  --amber:#FFC24B;
+  --paper:#EDEAF7;
+  --muted:#9A94BE;
+
+  --display:'Bai Jamjuree', system-ui, sans-serif;
+  --body:'IBM Plex Sans Thai', system-ui, sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--body);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+a{color:inherit}
+img{display:block;max-width:100%}
+
+/* ─────────── แถบเมนูด้านบน ─────────── */
+.bar{
+  position:fixed; inset:0 0 auto 0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; padding:14px clamp(16px,4vw,48px);
+  background:rgba(8,7,15,.72);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  transform:translateY(-100%);
+  transition:transform .35s ease;
+}
+.bar.show{transform:none}
+.bar__name{font-family:var(--display);font-weight:600;letter-spacing:.01em}
+.bar__links{display:flex;gap:22px;font-size:.92rem;color:var(--muted)}
+.bar__links a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+.bar__links a:hover{color:var(--paper);border-color:var(--cyan)}
+
+/* ─────────── หน้าแรก ─────────── */
+.hero{
+  position:relative; min-height:100svh;
+  display:grid; place-items:center;
+  padding:110px clamp(20px,5vw,40px) 110px;
+  text-align:center; overflow:hidden; isolation:isolate;
+}
+.aurora{
+  position:absolute; inset:-30%; z-index:-2;
+  background:
+    radial-gradient(38vw 38vw at 22% 28%, rgba(61,232,255,.32), transparent 62%),
+    radial-gradient(42vw 42vw at 76% 34%, rgba(255,61,154,.30), transparent 64%),
+    radial-gradient(46vw 46vw at 50% 84%, rgba(255,194,75,.18), transparent 66%),
+    var(--ink);
+  filter:blur(28px);
+  animation:drift 22s ease-in-out infinite alternate;
+}
+@keyframes drift{
+  from{transform:translate3d(-2%,-1%,0) scale(1)}
+  to{transform:translate3d(3%,2%,0) scale(1.12)}
+}
+/* เส้นตารางบางๆ ให้รู้สึกเหมือนไทม์ไลน์ตัดต่อ */
+.grid-lines{
+  position:absolute; inset:0; z-index:-1;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:100% 46px;
+  mask-image:linear-gradient(to bottom, transparent, #000 25%, #000 60%, transparent);
+}
+
+/* ไฟวิ่งพุ่งผ่านพื้นหลัง */
+.comet{
+  position:absolute; z-index:-1; height:2px;
+  border-radius:999px; filter:blur(.5px);
+  mix-blend-mode:screen; opacity:0;
+  animation:comet-run linear infinite;
+}
+.comet--1{
+  top:24%; left:-24%; width:34vw;
+  background:linear-gradient(90deg, transparent, var(--cyan), transparent);
+  transform:rotate(-10deg);
+  animation-duration:7.5s;
+}
+.comet--2{
+  top:66%; left:-30%; width:26vw;
+  background:linear-gradient(90deg, transparent, var(--magenta), transparent);
+  transform:rotate(-10deg);
+  animation-duration:9.5s; animation-delay:3.2s;
+}
+.comet--3{
+  top:44%; left:-20%; width:18vw;
+  background:linear-gradient(90deg, transparent, var(--amber), transparent);
+  transform:rotate(-10deg);
+  animation-duration:6.2s; animation-delay:1.4s;
+}
+@keyframes comet-run{
+  0%{transform:translateX(0) rotate(-10deg); opacity:0}
+  6%{opacity:.9}
+  88%{opacity:.9}
+  100%{transform:translateX(150vw) rotate(-10deg); opacity:0}
+}
+
+.hero__inner{max-width:900px}
+.hero__kicker{
+  position:relative; isolation:isolate; z-index:1;
+  display:inline-flex; align-items:center; gap:10px;
+  padding:7px 16px; margin-bottom:26px;
+  border:1px solid rgba(255,255,255,.18); border-radius:999px;
+  background:rgba(12,10,24,.75);
+  font-size:.86rem; color:var(--paper);
+  overflow:hidden;
+}
+.hero__kicker::before{
+  content:""; position:absolute; inset:-45%; z-index:-1;
+  background:conic-gradient(from 0deg, transparent 0 72%, var(--cyan) 82%, var(--magenta) 92%, transparent 100%);
+  animation:spin 3.2s linear infinite;
+}
+.hero__kicker::after{
+  content:""; position:absolute; inset:1px; z-index:-1;
+  border-radius:999px; background:rgba(12,10,24,.86);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--magenta);box-shadow:0 0 12px var(--magenta)}
+
+.hero h1{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(2.6rem,9vw,6.2rem);
+  line-height:1.02; margin:0 0 4px; letter-spacing:-.02em;
+}
+.hero h1 .line{display:block}
+.hero h1 .outline{
+  color:transparent;
+  -webkit-text-stroke:1.6px rgba(237,234,247,.65);
+}
+.hero__sub{
+  max-width:52ch; margin:26px auto 0;
+  color:var(--muted); font-size:clamp(1rem,2.2vw,1.12rem);
+}
+.hero__name{
+  margin-top:8px; font-family:var(--display); font-weight:600;
+  font-size:clamp(1.05rem,2.6vw,1.3rem); color:var(--paper);
+}
+.hero__name span{color:var(--cyan)}
+
+.author{
+  display:flex; align-items:center; gap:14px;
+  justify-content:center; margin-top:26px;
+}
+.author__pic{
+  position:relative; isolation:isolate;
+  width:64px; height:64px; border-radius:50%;
+  flex-shrink:0; padding:3px; background:var(--ink);
+}
+.author__pic::before{
+  content:""; position:absolute; inset:-4px; z-index:-1;
+  border-radius:50%;
+  background:conic-gradient(from 0deg, var(--cyan), var(--magenta), var(--amber), var(--cyan));
+  animation:spin 2.6s linear infinite;
+}
+.author__pic img{
+  width:100%; height:100%; border-radius:50%;
+  object-fit:cover; object-position:50% 22%;
+  display:block;
+}
+.author__text{text-align:left}
+.author__text .role{
+  display:block; color:var(--muted); font-size:.8rem; margin-bottom:2px;
+}
+
+.cta{
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+  margin-top:32px;
+}
+.btn{
+  font-family:var(--display); font-weight:600; font-size:1rem;
+  padding:14px 30px; border-radius:999px; text-decoration:none;
+  border:1px solid transparent; cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn--solid{
+  background:linear-gradient(100deg,var(--cyan),var(--magenta),var(--amber),var(--cyan));
+  background-size:280% 100%;
+  color:#0A0716;
+  box-shadow:0 10px 34px rgba(255,61,154,.32);
+  animation:shine 5s linear infinite;
+}
+.btn--solid:hover{transform:translateY(-2px);box-shadow:0 14px 42px rgba(61,232,255,.4)}
+.btn--ghost{border-color:rgba(255,255,255,.24);color:var(--paper);background:rgba(255,255,255,.03)}
+.btn--ghost:hover{background:rgba(255,255,255,.09)}
+
+.stats{
+  display:flex; gap:clamp(24px,6vw,64px); justify-content:center;
+  margin-top:40px; flex-wrap:wrap;
+}
+.stat b{
+  display:block; font-family:var(--display); font-weight:700;
+  font-size:clamp(1.8rem,5vw,2.6rem); line-height:1;
+  background:linear-gradient(120deg,var(--cyan),var(--amber));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.stat small{color:var(--muted);font-size:.86rem}
+
+.scroll-cue{
+  position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+  color:var(--muted); font-size:.8rem; text-decoration:none;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+}
+.scroll-cue i{
+  display:block; width:1px; height:34px;
+  background:linear-gradient(var(--cyan),transparent);
+  animation:cue 1.8s ease-in-out infinite;
+}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+@keyframes shine{0%{background-position:0% 50%}100%{background-position:280% 50%}}
+
+/* ลำดับการปรากฏตอนเปิดหน้า */
+.rise{opacity:0;transform:translateY(22px);animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}
+.d4{animation-delay:.42s}.d5{animation-delay:.54s}.d6{animation-delay:.66s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ─────────── ส่วนผลงาน ─────────── */
+.works{
+  max-width:1220px; margin:0 auto;
+  padding:clamp(70px,10vw,120px) clamp(18px,4vw,40px) 90px;
+}
+.works__head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:20px; flex-wrap:wrap;
+  padding-bottom:20px; margin-bottom:44px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.works__head h2{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(1.8rem,5vw,2.8rem); margin:0; letter-spacing:-.01em;
+}
+.works__head p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+
+.grid{
+  display:grid; gap:clamp(22px,3vw,34px);
+  grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:16px; overflow:hidden;
+  transition:border-color .25s ease, transform .25s ease;
+}
+.card:hover{
+  border-color:rgba(61,232,255,.55); transform:translateY(-4px);
+  box-shadow:0 20px 46px rgba(255,61,154,.22), 0 0 0 1px rgba(61,232,255,.18);
+}
+
+.frame{position:relative;aspect-ratio:16/9;background:#0C0A1A}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.thumb{
+  position:absolute; inset:0; padding:0; border:0; cursor:pointer;
+  background:none; display:block; width:100%; height:100%;
+}
+.thumb img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:opacity .25s ease,transform .5s ease}
+.thumb:hover img{opacity:1;transform:scale(1.04)}
+.thumb:focus-visible{outline:2px solid var(--cyan);outline-offset:-3px}
+.play{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:62px; height:62px; border-radius:50%;
+  background:rgba(8,7,15,.55); backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.5);
+  display:grid; place-items:center;
+  transition:background .25s ease, border-color .25s ease;
+}
+.play::after{
+  content:""; width:0;height:0; margin-left:4px;
+  border-left:17px solid var(--paper);
+  border-top:11px solid transparent;
+  border-bottom:11px solid transparent;
+}
+.thumb:hover .play{background:linear-gradient(120deg,var(--cyan),var(--magenta));border-color:transparent}
+.thumb:hover .play::after{border-left-color:#0A0716}
+
+.card__body{display:flex;align-items:center;gap:14px;padding:16px 18px 18px}
+.num{
+  font-family:var(--display); font-weight:700; font-size:1.05rem;
+  min-width:34px; height:34px; border-radius:9px;
+  display:grid; place-items:center;
+  background:rgba(61,232,255,.12); color:var(--cyan);
+}
+.card__body h3{margin:0;font-family:var(--display);font-weight:600;font-size:1.06rem}
+.card__body span{display:block;color:var(--muted);font-size:.84rem;font-weight:300}
+
+/* ─────────── ท้ายเว็บ ─────────── */
+footer{
+  border-top:1px solid rgba(255,255,255,.09);
+  padding:44px clamp(18px,4vw,40px) 60px;
+  text-align:center; color:var(--muted); font-size:.9rem;
+}
+footer strong{display:block;font-family:var(--display);color:var(--paper);font-size:1.15rem;margin-bottom:6px}
+.top{
+  display:inline-block;margin-top:18px;text-decoration:none;
+  border-bottom:1px solid rgba(61,232,255,.5);padding-bottom:2px;
+}
+
+@media (max-width:560px){
+  .bar__links a:first-child{display:none}
+  .hero{padding-top:90px}
+}
+@media (max-height:760px){
+  .scroll-cue{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .rise{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="bar" id="bar">
+  <div class="bar__name">ชนะศักดิ์ บัวจรูญ</div>
+  <div class="bar__links">
+    <a href="#home">หน้าแรก</a>
+    <a href="#works">ผลงาน</a>
+  </div>
+</nav>
+
+<!-- ═══════ หน้าแรก ═══════ -->
+<header class="hero" id="home">
+  <div class="aurora"></div>
+  <div class="grid-lines"></div>
+  <div class="comet comet--1"></div>
+  <div class="comet comet--2"></div>
+  <div class="comet comet--3"></div>
+
+  <div class="hero__inner">
+    <div class="hero__kicker rise d1"><span class="dot"></span> ผลงานส่งรายวิชา คอมพิวเตอร์กราฟิก IMS1002 ปี 2569</div>
+
+    <h1>
+      <span class="line rise d2">แฟ้มสะสม</span>
+      <span class="line outline rise d3">ผลงานวิดีโอ</span>
+    </h1>
+
+    <p class="hero__sub rise d4">รวมวิดีโอทั้งหมดที่ตัดต่อและผลิตขึ้นเอง ตั้งแต่ชิ้นแรกจนถึงชิ้นล่าสุด กดเล่นได้ทุกชิ้นในหน้าเดียว</p>
+
+    <div class="author rise d4">
+      <div class="author__pic">
+        <img src="profile.jpg" alt="รูปโปรไฟล์ ชนะศักดิ์ บัวจรูญ">
+      </div>
+      <div class="author__text">
+        <span class="role">จัดทำโดย</span>
+        <span class="hero__name" style="margin-top:0">ชนะศักดิ์ บัวจรูญ <span>(GoMin)</span></span>
+      </div>
+    </div>
+
+    <div class="cta rise d5">
+      <a class="btn btn--solid" href="#works">ดูผลงานทั้งหมด</a>
+      <a class="btn btn--ghost" href="#about">เกี่ยวกับผู้จัดทำ</a>
+    </div>
+
+    <div class="stats rise d6">
+      <div class="stat"><b>9</b><small>ชิ้นงาน</small></div>
+      <div class="stat"><b>HD</b><small>ความคมชัด</small></div>
+      <div class="stat"><b>100%</b><small>ผลิตเอง</small></div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#works"><span>เลื่อนลง</span><i></i></a>
+</header>
+
+<!-- ═══════ ผลงาน ═══════ -->
+<main class="works" id="works">
+  <div class="works__head">
+    <div>
+      <h2>ผลงานทั้งหมด</h2>
+      <p>กดที่ภาพเพื่อเล่นวิดีโอ</p>
+    </div>
+    <p>9 ชิ้น · เรียงตามลำดับการส่ง</p>
+  </div>
+
+  <!--
+    วิธีแก้ไข: เปลี่ยนรหัสวิดีโอที่ data-id และแก้ชื่อเรื่องใน <h3> กับคำอธิบายใน <span> ได้เลย
+    รหัสวิดีโอคือตัวอักษรหลัง youtu.be/ หรือ watch?v=
+  -->
+  <div class="grid">
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="wL5vpv5uR8Q" aria-label="เล่นวิดีโอ งานชิ้นที่ 1">
+          <img src="https://i.ytimg.com/vi/wL5vpv5uR8Q/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">1</div>
+        <div><h3>งานชิ้นที่ 1</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="c2NGx0YnTRM" aria-label="เล่นวิดีโอ งานชิ้นที่ 2">
+          <img src="https://i.ytimg.com/vi/c2NGx0YnTRM/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">2</div>
+        <div><h3>งานชิ้นที่ 2</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="SfNCIvJcBU8" aria-label="เล่นวิดีโอ งานชิ้นที่ 3">
+          <img src="https://i.ytimg.com/vi/SfNCIvJcBU8/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">3</div>
+        <div><h3>งานชิ้นที่ 3</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="2rPMMjqOZ-4" aria-label="เล่นวิดีโอ งานชิ้นที่ 4">
+          <img src="https://i.ytimg.com/vi/2rPMMjqOZ-4/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">4</div>
+        <div><h3>งานชิ้นที่ 4</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="sorC-br4_9A" aria-label="เล่นวิดีโอ งานชิ้นที่ 5">
+          <img src="https://i.ytimg.com/vi/sorC-br4_9A/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">5</div>
+        <div><h3>งานชิ้นที่ 5</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="zdtXYyShnBE" aria-label="เล่นวิดีโอ งานชิ้นที่ 6">
+          <img src="https://i.ytimg.com/vi/zdtXYyShnBE/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">6</div>
+        <div><h3>งานชิ้นที่ 6</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="iVepX3aQDs8" aria-label="เล่นวิดีโอ งานชิ้นที่ 7">
+          <img src="https://i.ytimg.com/vi/iVepX3aQDs8/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">7</div>
+        <div><h3>งานชิ้นที่ 7</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="ZFbvkgS2EaY" aria-label="เล่นวิดีโอ งานชิ้นที่ 8">
+          <img src="https://i.ytimg.com/vi/ZFbvkgS2EaY/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">8</div>
+        <div><h3>งานชิ้นที่ 8</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="frame">
+        <button class="thumb" data-id="C8vL1wgtarg" aria-label="เล่นวิดีโอ งานชิ้นที่ 9">
+          <img src="https://i.ytimg.com/vi/C8vL1wgtarg/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"></span>
+        </button>
+      </div>
+      <div class="card__body">
+        <div class="num">9</div>
+        <div><h3>งานชิ้นที่ 9 animation</h3><span>วิดีโอส่งงาน</span></div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer id="about">
+  <strong>ชนะศักดิ์ บัวจรูญ (GoMin) รหัส 69469101009</strong>
+  ผู้จัดทำและตัดต่อวิดีโอทั้งหมดในหน้านี้
+  <br>
+  <a class="top" href="#home">กลับขึ้นด้านบน</a>
+</footer>
+
+<script>
+// เล่นวิดีโอเมื่อกดที่ภาพ (โหลดเฉพาะตัวที่กด เว็บจึงเปิดเร็ว)
+document.querySelectorAll('.thumb').forEach(function (btn) {
+  var img = btn.querySelector('img');
+  img.addEventListener('error', function () {
+    img.src = 'https://i.ytimg.com/vi/' + btn.dataset.id + '/hqdefault.jpg';
+  }, { once: true });
+
+  btn.addEventListener('click', function () {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube.com/embed/' + btn.dataset.id + '?autoplay=1&rel=0';
+    f.title = btn.getAttribute('aria-label');
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    btn.parentNode.replaceChild(f, btn);
+  });
+});
+
+// แถบเมนูโผล่เมื่อเลื่อนพ้นหน้าแรก
+var bar = document.getElementById('bar');
+window.addEventListener('scroll', function () {
+  bar.classList.toggle('show', window.scrollY > window.innerHeight * 0.75);
+}, { passive: true });
+</script>
+
+</body>
+</html>
